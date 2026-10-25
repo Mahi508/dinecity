@@ -45,10 +45,22 @@ npm start
 
 Check the backend: `curl http://localhost:8080/api/health`
 
+### First administrator and first city
+
+ADMIN accounts cannot be registered through the app. Set these two variables in the same terminal **before** starting the backend (PowerShell shown; use `export` on Mac/Linux):
+
+```powershell
+$env:DINECITY_ADMIN_EMAIL="admin@dinecity.local"
+$env:DINECITY_ADMIN_PASSWORD="choose-a-strong-password"
+mvn spring-boot:run
+```
+
+Then log in at http://localhost:4200/login with those details, open **Admin**, and add your city. Owners can now list businesses in it. See [docs/API.md](docs/API.md) for all endpoints.
+
 ## Roadmap
 
 - [x] Stage 1: Project setup (this scaffold: schema, health endpoint, Angular shell)
-- [ ] Stage 2: Authentication and business directory
+- [x] Stage 2: Authentication and business directory (JWT login, roles, business profiles, search and filters, admin approval)
 - [ ] Stage 3: Pixel wall (canvas, selection, zoom, pricing)
 - [ ] Stage 4: Orders and payments (reservations, checkout, idempotent webhooks)
 - [ ] Stage 5: Advertising management (uploads, admin approval, campaign expiry)
