@@ -7,9 +7,11 @@ import { BusinessDetailComponent } from './pages/business/business-detail.compon
 import { HomeComponent } from './pages/home/home.component';
 import { BusinessFormComponent } from './pages/owner/business-form.component';
 import { OwnerDashboardComponent } from './pages/owner/owner-dashboard.component';
+import { WallComponent } from './pages/wall/wall.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'wall', component: WallComponent },
   { path: 'business/:id', component: BusinessDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

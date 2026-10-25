@@ -10,6 +10,7 @@ import { AuthService } from './core/auth.service';
     <header class="nav">
       <a routerLink="/" class="brand">DineCity</a>
       <nav>
+        <a routerLink="/wall">Pixel wall</a>
         @if (auth.user(); as u) {
           @if (u.role === 'OWNER') {
             <a routerLink="/owner">My businesses</a>

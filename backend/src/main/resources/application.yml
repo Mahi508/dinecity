@@ -33,6 +33,11 @@ dinecity:
     # If both are set, an ADMIN account is created on startup when it does not exist yet.
     email: ${DINECITY_ADMIN_EMAIL:}
     password: ${DINECITY_ADMIN_PASSWORD:}
+  wall:
+    # Smallest allowed advertising area, in pixels per side.
+    min-size: ${DINECITY_WALL_MIN_SIZE:10}
+    # Placeholder pricing rule: a timed campaign costs this fraction of the permanent price per 30 days.
+    timed-fraction-per-30-days: ${DINECITY_WALL_TIMED_FRACTION:0.10}
   business:
     # true: new businesses are visible immediately (handy in development).
     # false: they stay PENDING until an admin approves them.

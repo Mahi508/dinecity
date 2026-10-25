@@ -61,7 +61,7 @@ Then log in at http://localhost:4200/login with those details, open **Admin**, a
 
 - [x] Stage 1: Project setup (this scaffold: schema, health endpoint, Angular shell)
 - [x] Stage 2: Authentication and business directory (JWT login, roles, business profiles, search and filters, admin approval)
-- [ ] Stage 3: Pixel wall (canvas, selection, zoom, pricing)
+- [x] Stage 3: Pixel wall (canvas, selection, zoom, price quote, admin placements)
 - [ ] Stage 4: Orders and payments (reservations, checkout, idempotent webhooks)
 - [ ] Stage 5: Advertising management (uploads, admin approval, campaign expiry)
 - [ ] Stage 6: Dashboards and analytics

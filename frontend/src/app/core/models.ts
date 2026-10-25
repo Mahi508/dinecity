@@ -65,6 +65,59 @@ export interface Page<T> {
   totalPages: number;
 }
 
+export type PurchaseType = 'PERMANENT' | 'TIMED';
+
+export interface WallArea {
+  id: number;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  purchaseType: PurchaseType;
+  status: 'HELD' | 'CONFIRMED' | 'RELEASED' | 'EXPIRED';
+  endsAt: string | null;
+  businessId: number | null;
+  businessName: string;
+  category: Category | null;
+  logoUrl: string | null;
+}
+
+export interface Wall {
+  cityId: number;
+  cityName: string;
+  gridWidth: number;
+  gridHeight: number;
+  pricePerPixelPaise: number;
+  minSize: number;
+  areas: WallArea[];
+}
+
+export interface QuoteRequest {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  purchaseType: PurchaseType;
+  days?: number;
+}
+
+export interface Quote {
+  available: boolean;
+  pixels: number;
+  totalPaise: number;
+  message: string;
+}
+
+export interface GrantRequest {
+  businessId: number;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  purchaseType: PurchaseType;
+  days?: number;
+}
+
 /** Turns a failed HTTP response into a message that is safe to show to the user. */
 export function errorMessage(err: unknown, fallback = 'Something went wrong. Please try again.'): string {
   const body = (err as { error?: { message?: unknown } } | null)?.error;

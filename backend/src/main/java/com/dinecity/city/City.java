@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-/** Grid size and pricing columns exist in the table but are used from Stage 3 on. */
 @Entity
 @Table(name = "cities")
 public class City {
@@ -23,6 +22,16 @@ public class City {
 
     @Column(nullable = false)
     private String country = "India";
+
+    @Column(name = "grid_width", nullable = false)
+    private int gridWidth = 1000;
+
+    @Column(name = "grid_height", nullable = false)
+    private int gridHeight = 1000;
+
+    /** Permanent price of one pixel, in paise. 1000 paise = INR 10. */
+    @Column(name = "price_per_pixel_paise", nullable = false)
+    private long pricePerPixelPaise = 1000;
 
     @Column(nullable = false)
     private boolean active = true;
@@ -42,5 +51,8 @@ public class City {
     public String getName() { return name; }
     public String getState() { return state; }
     public String getCountry() { return country; }
+    public int getGridWidth() { return gridWidth; }
+    public int getGridHeight() { return gridHeight; }
+    public long getPricePerPixelPaise() { return pricePerPixelPaise; }
     public boolean isActive() { return active; }
 }
