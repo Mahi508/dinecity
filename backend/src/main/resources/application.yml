@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: dinecity-backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/dinecity}
+    username: ${DB_USER:dinecity}
+    password: ${DB_PASSWORD:dinecity}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

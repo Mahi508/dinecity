@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: dinecity-postgres
+    environment:
+      POSTGRES_DB: ${DB_NAME:-dinecity}
+      POSTGRES_USER: ${DB_USER:-dinecity}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-dinecity}
+    ports:
+      - "5432:5432"
+    volumes:
+      - dinecity-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-dinecity} -d ${DB_NAME:-dinecity}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  dinecity-pgdata:

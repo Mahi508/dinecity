@@ -1,0 +1,20 @@
+# Secrets
+.env
+*.pem
+*.key
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Backend
+backend/target/
+backend/*.log
+backend/uploads/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
