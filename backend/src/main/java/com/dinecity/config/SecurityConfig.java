@@ -43,7 +43,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(a -> a
                 .requestMatchers("/api/health", "/actuator/health").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/register", "/api/auth/login").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/cities", "/api/businesses", "/api/businesses/*").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/cities", "/api/cities/*/wall", "/api/businesses", "/api/businesses/*").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/cities/*/wall/quote").permitAll()
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/owner/**").hasRole("OWNER")
                 .requestMatchers(HttpMethod.POST, "/api/businesses").hasRole("OWNER")

@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ApiService } from '../../core/api.service';
 import { Business, BusinessStatus, City, errorMessage } from '../../core/models';
+import { AdminWallComponent } from './admin-wall.component';
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, AdminWallComponent],
   template: `
     <h1>Administration</h1>
 
@@ -30,6 +31,8 @@ import { Business, BusinessStatus, City, errorMessage } from '../../core/models'
         <p [class.error]="cityIsError">{{ cityMsg }}</p>
       }
     </section>
+
+    <app-admin-wall />
 
     <section class="panel wide">
       <h2>Review businesses</h2>
