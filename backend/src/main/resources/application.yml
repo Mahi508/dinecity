@@ -8,16 +8,32 @@ spring:
   jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: validate
+      ddl-auto: none   # schema is owned by Flyway migrations
   flyway:
     enabled: true
     locations: classpath:db/migration
 
 server:
   port: 8080
+  error:
+    include-message: always
 
 management:
   endpoints:
     web:
       exposure:
         include: health
+
+dinecity:
+  jwt:
+    # MUST be overridden with a long random value (32+ chars) via JWT_SECRET outside local development.
+    secret: ${JWT_SECRET:dev-only-secret-change-me-before-production-0123456789}
+    ttl-minutes: ${JWT_TTL_MINUTES:120}
+  admin:
+    # If both are set, an ADMIN account is created on startup when it does not exist yet.
+    email: ${DINECITY_ADMIN_EMAIL:}
+    password: ${DINECITY_ADMIN_PASSWORD:}
+  business:
+    # true: new businesses are visible immediately (handy in development).
+    # false: they stay PENDING until an admin approves them.
+    auto-approve: ${DINECITY_AUTO_APPROVE:true}
